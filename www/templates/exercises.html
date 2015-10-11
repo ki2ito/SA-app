@@ -1,0 +1,14 @@
+<ion-view view-title="Exercices">
+    <ion-content>
+        <h1>Liste des exercices disponibles</h1>
+
+        <ion-list ng-repeat="(keyMethod, method) in methods">
+            <ion-item class="item item-divider">
+                {{method.name}}
+            </ion-item>
+            <ion-item ng-repeat="(keyExercise, exercise) in method.exercisesList" href="#/app/exercise/{{keyMethod}}/{{keyExercise}}">
+                {{exercise.name}}
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

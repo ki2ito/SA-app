@@ -1,0 +1,45 @@
+<ion-view view-title="Emploi du temps">
+    <ion-content>
+        <h1>Semaine du 12 au 18 Octobre 2015 </h1>
+
+        <ion-list ng-repeat="day in schedule">
+            <ion-item class="item item-divider">
+                {{day.jour}}
+            </ion-item>
+            <ion-item ng-repeat="exercise in day.exercisesList">
+
+                <span ng-switch on="exercise.type">
+                    <span ng-switch-default>
+                        * {{exercise.name}}
+                        <br/>
+                        <ul>
+                            <li> {{exercise.series}} séries de {{exercise.repetitions}} répétitions. </li>
+                            <li> {{exercise.tempspause}} secondes de repos entre chaque série. </li>
+                            <li> {{exercise.tempsrecuperation}} avant de passer au prochain exercice. </li>
+                        </ul>
+                    </span>
+                    <span ng-switch-when="cardio">
+                        * {{exercise.name}}
+                        <br/>
+                        <ul>
+                            <li> Programme : {{exercise.program} </li>
+                            <li> Durée : {{exercise.duree}} minutes. </li>
+                            <li> Distance : {{exercise.distance}} kilomètres. </li>
+                            <li> {{exercise.calories}} calories dépensés. </li>
+                        </ul>
+
+                    </span>
+                    <span ng-switch-when="repos">
+                        * {{exercise.name}} !
+                        <br/>
+                        <ul>
+                            <li> {{exercise.description}} </li>
+                        </ul>
+                    </span>
+                </span>
+
+            </ion-item>
+        </ion-list>
+
+    </ion-content>
+</ion-view>
