@@ -1,0 +1,45 @@
+<ion-view view-title="Browse">
+  <ion-content>
+    <h1>12 Octobre 2015</h1>
+
+      <form ng-submit="sendTraining()">
+
+        <div data-ng-repeat="(keyExercise, exercise) in training">
+
+            <div class="list">
+                <br/>
+                <h2>{{exercise.name}}</h2>
+                <br/>
+
+                <div data-ng-repeat="(key, repetion) in exercise.trainingScore">
+
+                    <div class="row">
+                        <div class="col col-75">
+                            <label class="item item-input">
+                                <input type="number" min="0" max="200" ng-model="training[keyExercise].trainingScore[key].value">
+                            </label>
+                        </div>
+                        <div class="col">
+                            <label class="toggle toggle-balanced">
+                                <input type="checkbox">
+                                <div class="track">
+                                    <div class="handle"></div>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="list">
+          <label class="item">
+              <button class="button button-block button-positive" type="submit">Séance terminée !</button>
+          </label>
+        </div>
+
+      </form>
+
+  </ion-content>
+</ion-view>
